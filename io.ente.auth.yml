@@ -1,6 +1,6 @@
 app-id: io.ente.auth
 runtime: org.gnome.Platform
-runtime-version: '47'
+runtime-version: "47"
 sdk: org.gnome.Sdk
 command: enteauth
 finish-args:
@@ -9,6 +9,7 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --socket=pulseaudio
+  - --socket=system-bus
   # Flutter needs GPU permission.
   - --device=dri
   # Needs to talk to the network for authentication
@@ -68,7 +69,7 @@ modules:
               project-id: 5046
               url-template: https://dotat.at/prog/unifdef/unifdef-$version.tar.xz
         cleanup:
-          - '*'
+          - "*"
 
   - name: libsodium
     sources:
@@ -79,6 +80,17 @@ modules:
           type: anitya
           project-id: 1728
           url-template: https://github.com/jedisct1/libsodium/archive/$version.tar.gz
+
+  - name: fprintd
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.freedesktop.org/libfprint/fprintd.git
+        tag: v1.94.4
+        x-checker-data:
+          type: git
+          url: https://gitlab.freedesktop.org/libfprint/fprintd.git
+          tag-pattern: "^v([\\d.]+)$"
 
   - name: enteauth
     buildsystem: simple
