@@ -9,7 +9,6 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --socket=pulseaudio
-  - --socket=system-bus
   # Flutter needs GPU permission.
   - --device=dri
   # Needs to talk to the network for authentication
@@ -17,6 +16,8 @@ finish-args:
   # For desktop notifications
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
+  # For fingerprint authentication
+  - --system-talk-name=net.reactivated.Fprint
 rename-appdata-file: enteauth.appdata.xml
 rename-desktop-file: enteauth.desktop
 rename-icon: enteauth
