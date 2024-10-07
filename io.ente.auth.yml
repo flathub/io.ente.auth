@@ -1,6 +1,6 @@
 app-id: io.ente.auth
 runtime: org.gnome.Platform
-runtime-version: "47"
+runtime-version: '47'
 sdk: org.gnome.Sdk
 command: enteauth
 finish-args:
@@ -41,8 +41,8 @@ modules:
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF # Unused inside of flatpak
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.44.3.tar.xz
-        sha256: dc82d042ecaca981a4852357c06e5235743319cf10a94cd36ad41b97883a0b54
+        url: https://webkitgtk.org/releases/webkitgtk-2.46.1.tar.xz
+        sha256: 2a14faac359aff941d0bc4443eb5537e3702bcaf316b0a129e0e65f3ff8eaac0
         x-checker-data:
           type: html
           url: https://webkitgtk.org/releases/
@@ -52,7 +52,8 @@ modules:
         commands:
           - sed -i 's@NAMES avif.h@NAMES avif/avif.h@' Source/cmake/FindAVIF.cmake
           - sed -i '/PATH_SUFFIXES avif/d' Source/cmake/FindAVIF.cmake
-          - sed -i 's@${AVIF_INCLUDE_DIR}/avif.h@${AVIF_INCLUDE_DIR}/avif/avif.h@' Source/cmake/FindAVIF.cmake
+          - sed -i 's@${AVIF_INCLUDE_DIR}/avif.h@${AVIF_INCLUDE_DIR}/avif/avif.h@'
+            Source/cmake/FindAVIF.cmake
     modules:
       - name: unifdef
         no-autogen: true
@@ -67,7 +68,7 @@ modules:
               project-id: 5046
               url-template: https://dotat.at/prog/unifdef/unifdef-$version.tar.xz
         cleanup:
-          - "*"
+          - '*'
 
   - name: libsodium
     sources:
@@ -84,7 +85,8 @@ modules:
     build-commands:
       - bsdtar --to-stdout -xf ente-auth.deb data.* | bsdtar -xf -
       - mv usr/share/* ${FLATPAK_DEST}/share/
-      - ARCH_TRIPLE=$(gcc --print-multiarch) && ln -s /usr/lib/${ARCH_TRIPLE}/libsqlite3.so.0 ${FLATPAK_DEST}/lib/libsqlite3.so
+      - ARCH_TRIPLE=$(gcc --print-multiarch) && ln -s /usr/lib/${ARCH_TRIPLE}/libsqlite3.so.0
+        ${FLATPAK_DEST}/lib/libsqlite3.so
       - ln -s ${FLATPAK_DEST}/share/enteauth/enteauth ${FLATPAK_DEST}/bin/enteauth
     sources:
       - type: file
