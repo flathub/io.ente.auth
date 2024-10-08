@@ -82,6 +82,50 @@ modules:
           project-id: 1728
           url-template: https://github.com/jedisct1/libsodium/archive/$version.tar.gz
 
+  - name: libusb
+    config-opts:
+      - --disable-static
+    cleanup:
+      - /lib/*.la
+      - /lib/pkgconfig
+      - /include
+    sources:
+      - type: git
+        url: https://github.com/libusb/libusb.git
+        tag: v1.0.27
+        post-install:
+          - install -Dm644 COPYING /${FLATPAK_DEST}/share/licenses/libusb/COPYING
+        x-checker-data:
+          type: git
+          url: https://github.com/libusb/libusb.git
+          tag-pattern: "^v([\\d.]+)$"
+
+  - name: libgusb
+    buildsystem: meson
+    config-opts:
+      - -Dtests=false
+      - -Dtests=false
+      - -Ddocs=false
+    sources:
+      - type: git
+        url: https://github.com/hughsie/libgusb.git
+        tag: "0.4.9"
+        x-checker-data:
+          type: git
+          url: https://github.com/hughsie/libgusb.git
+          tag-pattern: "^([\\d.]+)$"
+
+  - name: gudev
+    buildsystem: meson
+    config-opts:
+      - -Dtests=disabled
+      - -Dintrospection=disabled
+      - -Dvapi=disabled
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libgudev/238/libgudev-238.tar.xz
+        sha256: 61266ab1afc9d73dbc60a8b2af73e99d2fdff47d99544d085760e4fa667b5dd1
+
   - name: libfprint
     buildsystem: meson
     config-opts:
