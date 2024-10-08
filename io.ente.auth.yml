@@ -24,7 +24,6 @@ cleanup:
   - /lib/pkgconfig
   - /include
   - /lib
-  - /lib/debug
 modules:
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
 
