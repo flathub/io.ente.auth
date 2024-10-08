@@ -105,7 +105,7 @@ modules:
   - name: libgusb
     buildsystem: meson
     config-opts:
-      - -Dprefix=${FLATPAK_DEST}
+      - --prefix=${FLATPAK_DEST}
       - -Dtests=false
       - -Dtests=false
       - -Ddocs=false
@@ -121,7 +121,7 @@ modules:
   - name: gudev
     buildsystem: meson
     config-opts:
-      - -Dprefix=${FLATPAK_DEST}
+      - --prefix=${FLATPAK_DEST}
       - -Dtests=disabled
       - -Dintrospection=disabled
       - -Dvapi=disabled
@@ -133,7 +133,7 @@ modules:
   - name: libfprint
     buildsystem: meson
     config-opts:
-      - -Dprefix=${FLATPAK_DEST}
+      - --prefix=${FLATPAK_DEST}
       - -Dudev_hwdb=disabled
       - -Dudev_rules=disabled
       - -Ddoc=false
@@ -150,7 +150,7 @@ modules:
   - name: fprintd
     buildsystem: meson
     config-opts:
-      - -Dprefix=${FLATPAK_DEST}
+      - --prefix=${FLATPAK_DEST}
       - -Dpam=false
       - -Dman=false
       - -Dsystemd=false
