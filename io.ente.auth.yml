@@ -98,6 +98,7 @@ modules:
       - meson setup builddir --prefix=${FLATPAK_DEST} -Dpam=false -Dman=false -Dsystemd=false
       - ninja -C builddir
       - install -Dm755 builddir/utils/fprintd-verify ${FLATPAK_DEST}/bin/fprintd-verify
+      - install -Dm755 builddir/utils/fprintd-list ${FLATPAK_DEST}/bin/fprintd-list
     modules:
       - name: libusb
         buildsystem: autotools
