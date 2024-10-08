@@ -30,7 +30,7 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DPORT=GTK
       - -DUSE_GTK4=OFF
-      - -DUSE_SOUP2=ON  # This makes it build webkit2gtk-4.0 instead of 4.1.
+      - -DUSE_SOUP2=ON # This makes it build webkit2gtk-4.0 instead of 4.1.
       - -DUSE_LIBSECRET=OFF
       - -DUSE_LIBBACKTRACE=OFF
       - -DENABLE_GAMEPAD=OFF
@@ -38,7 +38,7 @@ modules:
       - -DENABLE_SPELLCHECK=OFF
       - -DENABLE_DOCUMENTATION=OFF
       - -DENABLE_MINIBROWSER=OFF
-      - -DENABLE_BUBBLEWRAP_SANDBOX=OFF  # Unused inside of flatpak
+      - -DENABLE_BUBBLEWRAP_SANDBOX=OFF # Unused inside of flatpak
     sources:
       - type: archive
         url: https://webkitgtk.org/releases/webkitgtk-2.46.1.tar.xz
@@ -67,7 +67,7 @@ modules:
               project-id: 5046
               url-template: https://dotat.at/prog/unifdef/unifdef-$version.tar.xz
         cleanup:
-          - '*'
+          - "*"
       - name: highway
         buildsystem: cmake-ninja
         builddir: true
@@ -136,9 +136,9 @@ modules:
           - -DJPEGXL_FORCE_SYSTEM_BROTLI=ON
           - -DJPEGXL_FORCE_SYSTEM_LCMS2=ON
           - -DJPEGXL_FORCE_SYSTEM_HWY=ON
-        post-install:
-          # It doesn't respect disabling static libraries...
-          - rm $FLATPAK_DEST/lib/*.a
+        # post-install:
+        #   # It doesn't respect disabling static libraries...
+        #   - rm $FLATPAK_DEST/lib/*.a
         sources:
           - type: archive
             url: https://github.com/libjxl/libjxl/archive/v0.10.3/libjxl-0.10.3.tar.gz
