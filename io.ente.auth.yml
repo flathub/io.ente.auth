@@ -4,6 +4,7 @@ runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
 command: enteauth
 finish-args:
+  - --share=ipc
   - --socket=wayland
   - --socket=fallback-x11
   # Flutter needs GPU permission.
