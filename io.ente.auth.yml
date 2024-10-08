@@ -82,8 +82,28 @@ modules:
           project-id: 1728
           url-template: https://github.com/jedisct1/libsodium/archive/$version.tar.gz
 
+  - name: libfprint
+    buildsystem: meson
+    config-opts:
+      - -Dudev_hwdb=disabled
+      - -Dudev_rules=disabled
+      - -Ddoc=false
+      - -Dinstalled-tests=false
+    sources:
+      - type: git
+        url: https://gitlab.freedesktop.org/libfprint/libfprint.git
+        tag: v1.94.8
+        x-checker-data:
+          type: git
+          url: https://gitlab.freedesktop.org/libfprint/libfprint.git
+          tag-pattern: "^v([\\d.]+)$"
+
   - name: fprintd
     buildsystem: meson
+    config-opts:
+      - -Dpam=false
+      - -Dman=false
+      - -Dsystemd=false
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/libfprint/fprintd.git
