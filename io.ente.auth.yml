@@ -1,14 +1,12 @@
 app-id: io.ente.auth
 runtime: org.gnome.Platform
-runtime-version: '47'
+runtime-version: "47"
 sdk: org.gnome.Sdk
 command: enteauth
 finish-args:
-  # X11 + XShm access
   - --share=ipc
   - --socket=wayland
   - --socket=fallback-x11
-  - --socket=pulseaudio
   # Flutter needs GPU permission.
   - --device=dri
   # Needs to talk to the network for authentication
@@ -16,9 +14,15 @@ finish-args:
   # For desktop notifications
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
+  # For fingerprint authentication
+  - --system-talk-name=net.reactivated.Fprint
 rename-appdata-file: enteauth.appdata.xml
 rename-desktop-file: enteauth.desktop
 rename-icon: enteauth
+cleanup:
+  - /lib/*.la
+  - /lib/pkgconfig
+  - /include
 modules:
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
 
@@ -68,7 +72,7 @@ modules:
               project-id: 5046
               url-template: https://dotat.at/prog/unifdef/unifdef-$version.tar.xz
         cleanup:
-          - '*'
+          - "*"
 
   - name: libsodium
     sources:
@@ -79,6 +83,77 @@ modules:
           type: anitya
           project-id: 1728
           url-template: https://github.com/jedisct1/libsodium/archive/$version.tar.gz
+
+  - name: fprintd
+    buildsystem: simple
+    sources:
+      - type: git
+        url: https://gitlab.freedesktop.org/libfprint/fprintd.git
+        tag: v1.94.4
+        x-checker-data:
+          type: git
+          url: https://gitlab.freedesktop.org/libfprint/fprintd.git
+          tag-pattern: "^v([\\d.]+)$"
+    build-commands:
+      - meson setup builddir --prefix=${FLATPAK_DEST} -Dpam=false -Dman=false -Dsystemd=false
+      - ninja -C builddir
+      - install -Dm755 builddir/utils/fprintd-verify ${FLATPAK_DEST}/bin/fprintd-verify
+      - install -Dm755 builddir/utils/fprintd-list ${FLATPAK_DEST}/bin/fprintd-list
+    modules:
+      - name: libusb
+        buildsystem: autotools
+        config-opts:
+          - --disable-static
+        sources:
+          - type: git
+            url: https://github.com/libusb/libusb.git
+            tag: v1.0.27
+            x-checker-data:
+              type: git
+              url: https://github.com/libusb/libusb.git
+              tag-pattern: "^v([\\d.]+)$"
+
+      - name: libgusb
+        buildsystem: meson
+        config-opts:
+          - -Dtests=false
+          - -Dtests=false
+          - -Ddocs=false
+        sources:
+          - type: git
+            url: https://github.com/hughsie/libgusb.git
+            tag: "0.4.9"
+            x-checker-data:
+              type: git
+              url: https://github.com/hughsie/libgusb.git
+              tag-pattern: "^([\\d.]+)$"
+
+      - name: gudev
+        buildsystem: meson
+        config-opts:
+          - -Dtests=disabled
+          - -Dintrospection=disabled
+          - -Dvapi=disabled
+        sources:
+          - type: archive
+            url: https://download.gnome.org/sources/libgudev/238/libgudev-238.tar.xz
+            sha256: 61266ab1afc9d73dbc60a8b2af73e99d2fdff47d99544d085760e4fa667b5dd1
+
+      - name: libfprint
+        buildsystem: meson
+        config-opts:
+          - -Dudev_hwdb=disabled
+          - -Dudev_rules=disabled
+          - -Ddoc=false
+          - -Dinstalled-tests=false
+        sources:
+          - type: git
+            url: https://gitlab.freedesktop.org/libfprint/libfprint.git
+            tag: v1.94.8
+            x-checker-data:
+              type: git
+              url: https://gitlab.freedesktop.org/libfprint/libfprint.git
+              tag-pattern: "^v([\\d.]+)$"
 
   - name: enteauth
     buildsystem: simple
