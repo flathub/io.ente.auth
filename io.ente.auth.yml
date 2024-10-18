@@ -96,6 +96,7 @@ modules:
           type: git
           url: https://gitlab.freedesktop.org/libfprint/fprintd.git
           tag-pattern: ^v([\d.]+)$
+        commit: a1ce7322372cb848f7cd6c3f499b757edd709dd2
     build-commands:
       - meson setup builddir --prefix=${FLATPAK_DEST} -Dpam=false -Dman=false -Dsystemd=false
       - ninja -C builddir
