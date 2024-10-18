@@ -14,6 +14,8 @@ finish-args:
   # For desktop notifications
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
+  # Required to access secrets from the secrets portal
+  - --talk-name=org.freedesktop.secrets
   # For fingerprint authentication
   - --system-talk-name=net.reactivated.Fprint
 rename-appdata-file: enteauth.appdata.xml
