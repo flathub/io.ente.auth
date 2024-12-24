@@ -47,8 +47,8 @@ modules:
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF # Unused inside of flatpak
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.46.2.tar.xz
-        sha256: 5aae1c5c0a30d5e9c5831652b6f1bdefc31d75e0ad81cb40185b0aed92ce79b6
+        url: https://webkitgtk.org/releases/webkitgtk-2.46.5.tar.xz
+        sha256: bad4020bb0cfb3e740df3082c2d9cbf67cf4095596588a56aecdde6702137805
         x-checker-data:
           type: html
           url: https://webkitgtk.org/releases/
