@@ -180,4 +180,4 @@ modules:
           type: json
           url: https://api.github.com/repos/ente-io/ente/releases
           version-query: '[.[] | select(.draft == false and (.tag_name | startswith("auth-v")) and .prerelease == false)][0].tag_name | sub("^auth-v"; "")'
-          url-query: '.assets[] | select(.name == "ente-auth-v" + $version + "-x86_64.deb").browser_download_url'
+          url-query: '"https://github.com/ente-io/ente/releases/download/auth-v" + $version + "/ente-auth-v" + $version + "-x86_64.deb"'
