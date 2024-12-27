@@ -173,11 +173,13 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ente-io/ente/releases/download/auth-v4.2.0/ente-auth-v4.2.0-x86_64.deb
-        sha256: 305de14c85adafdab9d34407ae9f0c16cdd90824a9a0b9d0de062a7bb939b034
+        url: https://github.com/ente-io/ente/releases/download/auth-v4.2.1/ente-auth-v4.2.1-x86_64.deb
+        sha256: 9637ae463d795c61bdd0fbad802a9509037ac248b083652aaff8f90557155c9b
         dest-filename: ente-auth.deb
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ente-io/ente/releases
-          version-query: '[.[] | select(.draft == false and (.tag_name | startswith("auth-v")) and .prerelease == false)][0].tag_name | sub("^auth-v"; "")'
-          url-query: '"https://github.com/ente-io/ente/releases/download/auth-v" + $version + "/ente-auth-v" + $version + "-x86_64.deb"'
+          version-query: '[.[] | select(.draft == false and (.tag_name | startswith("auth-v"))
+            and .prerelease == false)][0].tag_name | sub("^auth-v"; "")'
+          url-query: '"https://github.com/ente-io/ente/releases/download/auth-v" +
+            $version + "/ente-auth-v" + $version + "-x86_64.deb"'
