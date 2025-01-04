@@ -47,8 +47,8 @@ modules:
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF # Unused inside of flatpak
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.46.2.tar.xz
-        sha256: 5aae1c5c0a30d5e9c5831652b6f1bdefc31d75e0ad81cb40185b0aed92ce79b6
+        url: https://webkitgtk.org/releases/webkitgtk-2.46.5.tar.xz
+        sha256: bad4020bb0cfb3e740df3082c2d9cbf67cf4095596588a56aecdde6702137805
         x-checker-data:
           type: html
           url: https://webkitgtk.org/releases/
@@ -173,8 +173,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ente-io/ente/releases/download/auth-v4.2.2/ente-auth-v4.2.2-x86_64.deb
-        sha256: 8afa9490f617cd2cbf8efeea04c5869fcd69c0500f242299b0ddd08bce1c34c7
+        url: https://github.com/ente-io/ente/releases/download/auth-v4.2.3/ente-auth-v4.2.3-x86_64.deb
+        sha256: 9bd6432709dc71e6235b9f2938628e117fde679ad2dcb7faedd213b2bc2a4f06
         dest-filename: ente-auth.deb
         x-checker-data:
           type: json
