@@ -174,8 +174,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ente-io/ente/releases/download/auth-v4.2.4/ente-auth-v4.2.4-x86_64.deb
-        sha256: f7bf2f23dbb7653e5b89b9ddd88473028e6abfbe3a7e5145875858ee4f8d632d
+        url: https://github.com/ente-io/ente/releases/download/auth-v4.3.1/ente-auth-v4.3.1-x86_64.deb
+        sha256: 61c11d3ca0c099dc9ad95819ae6ddfb4c76c54e14b88c28e25e864da63876baf
         dest-filename: ente-auth.deb
         x-checker-data:
           type: json
