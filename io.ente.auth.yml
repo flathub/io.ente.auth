@@ -161,6 +161,13 @@ modules:
               tag-pattern: ^v([\d.]+)$
 
             commit: e57bab2f1ef3583158d2e6e2b5bb4182629ebe35
+
+      - name: zenity
+        buildsystem: meson
+        sources:
+          - type: archive
+            url: https://download.gnome.org/sources/zenity/4.0/zenity-4.0.3.tar.xz
+            sha256: b429d97b87bd9ce7fb72ac0b78df534725d8ad39817ddca6a4ca2ee5381b08de
   - name: enteauth
     buildsystem: simple
     build-commands:
