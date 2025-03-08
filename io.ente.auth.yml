@@ -172,7 +172,7 @@ modules:
     buildsystem: simple
     build-commands:
       - bsdtar --to-stdout -xf ente-auth.deb data.* | bsdtar -xf -
-      - mv usr/share/* ${FLATPAK_DEST}/share/
+      - cp -a usr/share/. ${FLATPAK_DEST}/share/ && rm -rf usr/share
       - sed -i '21d' ${FLATPAK_DEST}/share/metainfo/enteauth.appdata.xml
       - ARCH_TRIPLE=$(gcc --print-multiarch) && ln -s /usr/lib/${ARCH_TRIPLE}/libsqlite3.so.0
         ${FLATPAK_DEST}/lib/libsqlite3.so
