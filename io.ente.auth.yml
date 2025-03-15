@@ -47,8 +47,8 @@ modules:
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF # Unused inside of flatpak
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.46.5.tar.xz
-        sha256: bad4020bb0cfb3e740df3082c2d9cbf67cf4095596588a56aecdde6702137805
+        url: https://webkitgtk.org/releases/webkitgtk-2.48.0.tar.xz
+        sha256: 94904a55cf12d44a4e36ceadafff02d46da73d76be9b4769f34cbfdf0eebf88e
         x-checker-data:
           type: html
           url: https://webkitgtk.org/releases/
@@ -154,13 +154,13 @@ modules:
         sources:
           - type: git
             url: https://gitlab.freedesktop.org/libfprint/libfprint.git
-            tag: v1.94.8
+            tag: v1.94.9
             x-checker-data:
               type: git
               url: https://gitlab.freedesktop.org/libfprint/libfprint.git
               tag-pattern: ^v([\d.]+)$
 
-            commit: e57bab2f1ef3583158d2e6e2b5bb4182629ebe35
+            commit: dc8b05f0a30e93174e861977cede8427c22f8f76
   - name: enteauth
     buildsystem: simple
     build-commands:
