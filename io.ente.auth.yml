@@ -47,8 +47,8 @@ modules:
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF # Unused inside of flatpak
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.46.5.tar.xz
-        sha256: bad4020bb0cfb3e740df3082c2d9cbf67cf4095596588a56aecdde6702137805
+        url: https://webkitgtk.org/releases/webkitgtk-2.48.1.tar.xz
+        sha256: 98efdf21c4cdca0fe0b73ab5a8cb52093b5aa52d9b1b016a93f71dbfa1eb258f
         x-checker-data:
           type: html
           url: https://webkitgtk.org/releases/
@@ -110,13 +110,13 @@ modules:
         sources:
           - type: git
             url: https://github.com/libusb/libusb.git
-            tag: v1.0.27
+            tag: v1.0.28
             x-checker-data:
               type: git
               url: https://github.com/libusb/libusb.git
               tag-pattern: ^v([\d.]+)$
 
-            commit: d52e355daa09f17ce64819122cb067b8a2ee0d4b
+            commit: a61afe5f75d969c4561a1d0ad753aa23cee6329a
       - name: libgusb
         buildsystem: meson
         config-opts:
