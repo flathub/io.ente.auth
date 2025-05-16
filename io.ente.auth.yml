@@ -161,11 +161,18 @@ modules:
               tag-pattern: ^v([\d.]+)$
 
             commit: e57bab2f1ef3583158d2e6e2b5bb4182629ebe35
+
+      - name: zenity
+        buildsystem: meson
+        sources:
+          - type: archive
+            url: https://download.gnome.org/sources/zenity/4.0/zenity-4.0.3.tar.xz
+            sha256: b429d97b87bd9ce7fb72ac0b78df534725d8ad39817ddca6a4ca2ee5381b08de
   - name: enteauth
     buildsystem: simple
     build-commands:
       - bsdtar --to-stdout -xf ente-auth.deb data.* | bsdtar -xf -
-      - mv usr/share/* ${FLATPAK_DEST}/share/
+      - cp -a usr/share/. ${FLATPAK_DEST}/share/ && rm -rf usr/share
       - sed -i '21d' ${FLATPAK_DEST}/share/metainfo/enteauth.appdata.xml
       - ARCH_TRIPLE=$(gcc --print-multiarch) && ln -s /usr/lib/${ARCH_TRIPLE}/libsqlite3.so.0
         ${FLATPAK_DEST}/lib/libsqlite3.so
