@@ -171,6 +171,9 @@ modules:
   - name: enteauth
     buildsystem: simple
     build-commands:
+      - ln -s /app/lib/libappindicator3.so /app/lib/libayatana-appindicator3.so.1
+      - ln -s /app/lib/libappindicator3.so /app/lib/libayatana-indicator3.so.7
+      - ln -s /app/lib/libappindicator3.so /app/lib/libayatana-ido3-0.4.so.0
       - bsdtar --to-stdout -xf ente-auth.deb data.* | bsdtar -xf -
       - cp -a usr/share/. ${FLATPAK_DEST}/share/ && rm -rf usr/share
       - sed -i '21d' ${FLATPAK_DEST}/share/metainfo/enteauth.appdata.xml
