@@ -18,6 +18,7 @@ finish-args:
   - --talk-name=org.freedesktop.secrets
   # For fingerprint authentication
   - --system-talk-name=net.reactivated.Fprint
+  - --env=LD_LIBRARY_PATH=/app/lib
 rename-appdata-file: enteauth.appdata.xml
 rename-desktop-file: enteauth.desktop
 rename-icon: enteauth
