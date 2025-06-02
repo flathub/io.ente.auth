@@ -48,8 +48,8 @@ modules:
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF # Unused inside of flatpak
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.46.5.tar.xz
-        sha256: bad4020bb0cfb3e740df3082c2d9cbf67cf4095596588a56aecdde6702137805
+        url: https://webkitgtk.org/releases/webkitgtk-2.48.3.tar.xz
+        sha256: d4dc5970f0fc6a529ff7fd67bcbfab2bbb5e91be789b2e9279640b3217a782c3
         x-checker-data:
           type: html
           url: https://webkitgtk.org/releases/
@@ -92,12 +92,12 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/libfprint/fprintd.git
-        tag: v1.94.4
+        tag: v1.94.5
         x-checker-data:
           type: git
           url: https://gitlab.freedesktop.org/libfprint/fprintd.git
           tag-pattern: ^v([\d.]+)$
-        commit: a1ce7322372cb848f7cd6c3f499b757edd709dd2
+        commit: b54a007ccf58ac0ae074c7151b223f35cbd17306
     build-commands:
       - meson setup builddir --prefix=${FLATPAK_DEST} -Dpam=false -Dman=false -Dsystemd=false
       - ninja -C builddir
@@ -111,13 +111,13 @@ modules:
         sources:
           - type: git
             url: https://github.com/libusb/libusb.git
-            tag: v1.0.27
+            tag: v1.0.29
             x-checker-data:
               type: git
               url: https://github.com/libusb/libusb.git
               tag-pattern: ^v([\d.]+)$
 
-            commit: d52e355daa09f17ce64819122cb067b8a2ee0d4b
+            commit: 15a7ebb4d426c5ce196684347d2b7cafad862626
       - name: libgusb
         buildsystem: meson
         config-opts:
@@ -155,13 +155,13 @@ modules:
         sources:
           - type: git
             url: https://gitlab.freedesktop.org/libfprint/libfprint.git
-            tag: v1.94.8
+            tag: v1.94.9
             x-checker-data:
               type: git
               url: https://gitlab.freedesktop.org/libfprint/libfprint.git
               tag-pattern: ^v([\d.]+)$
 
-            commit: e57bab2f1ef3583158d2e6e2b5bb4182629ebe35
+            commit: dc8b05f0a30e93174e861977cede8427c22f8f76
 
       - name: zenity
         buildsystem: meson
@@ -185,8 +185,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ente-io/ente/releases/download/auth-v4.3.6/ente-auth-v4.3.6-x86_64.deb
-        sha256: 0dda3a43efd4e07f9407c86dc164ef68512c1eada5c6d10fe33e994a0307d3ce
+        url: https://github.com/ente-io/ente/releases/download/auth-v4.4.0/ente-auth-v4.4.0-x86_64.deb
+        sha256: d45a1c0ce4a9137ffb0d16c45171d50b56de663855ac1cebcaebfe677e7e1934
         dest-filename: ente-auth.deb
         x-checker-data:
           type: json
