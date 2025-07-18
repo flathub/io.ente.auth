@@ -9,6 +9,8 @@ finish-args:
   - --socket=fallback-x11
   # Flutter needs GPU permission.
   - --device=dri
+  # For exporting codes or logs
+  - --filesystem=xdg-download
   # Needs to talk to the network for authentication
   - --share=network
   # For desktop notifications
