@@ -76,8 +76,8 @@ modules:
               type: anitya
               project-id: 5046
               url-template: https://dotat.at/prog/unifdef/unifdef-$version.tar.xz
-           - type: patch
-             path: 19.patch # Fix GCC15 Build
+          - type: patch
+            path: 19.patch # Fix GCC15 Build
         cleanup:
           - '*'
 
