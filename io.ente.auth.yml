@@ -1,6 +1,6 @@
 app-id: io.ente.auth
 runtime: org.gnome.Platform
-runtime-version: '47'
+runtime-version: '49'
 sdk: org.gnome.Sdk
 command: enteauth
 finish-args:
@@ -76,6 +76,8 @@ modules:
               type: anitya
               project-id: 5046
               url-template: https://dotat.at/prog/unifdef/unifdef-$version.tar.xz
+          - type: patch
+            path: 19.patch # Fix GCC15 Build
         cleanup:
           - '*'
 
@@ -187,8 +189,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ente-io/ente/releases/download/auth-v4.4.0/ente-auth-v4.4.0-x86_64.deb
-        sha256: d45a1c0ce4a9137ffb0d16c45171d50b56de663855ac1cebcaebfe677e7e1934
+        url: https://github.com/ente-io/ente/releases/download/auth-v4.4.4/ente-auth-v4.4.4-x86_64.deb
+        sha256: 73e344f8e2b57b9411aa6f4b3940021aaf913039124a272d51be4c5031f5cebd
         dest-filename: ente-auth.deb
         x-checker-data:
           type: json
