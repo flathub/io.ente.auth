@@ -50,8 +50,8 @@ modules:
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF # Unused inside of flatpak
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.46.5.tar.xz
-        sha256: bad4020bb0cfb3e740df3082c2d9cbf67cf4095596588a56aecdde6702137805
+        url: https://webkitgtk.org/releases/webkitgtk-2.50.3.tar.xz
+        sha256: 70a006b4695bb6b2e157e801f5a0d029f4110f050c6f0882decd8a3bf594d54f
         x-checker-data:
           type: html
           url: https://webkitgtk.org/releases/
@@ -96,12 +96,12 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/libfprint/fprintd.git
-        tag: v1.94.4
+        tag: v1.94.5
         x-checker-data:
           type: git
           url: https://gitlab.freedesktop.org/libfprint/fprintd.git
           tag-pattern: ^v([\d.]+)$
-        commit: a1ce7322372cb848f7cd6c3f499b757edd709dd2
+        commit: b54a007ccf58ac0ae074c7151b223f35cbd17306
     build-commands:
       - meson setup builddir --prefix=${FLATPAK_DEST} -Dpam=false -Dman=false -Dsystemd=false
       - ninja -C builddir
@@ -115,13 +115,13 @@ modules:
         sources:
           - type: git
             url: https://github.com/libusb/libusb.git
-            tag: v1.0.27
+            tag: v1.0.29
             x-checker-data:
               type: git
               url: https://github.com/libusb/libusb.git
               tag-pattern: ^v([\d.]+)$
 
-            commit: d52e355daa09f17ce64819122cb067b8a2ee0d4b
+            commit: 15a7ebb4d426c5ce196684347d2b7cafad862626
       - name: libgusb
         buildsystem: meson
         config-opts:
@@ -159,13 +159,13 @@ modules:
         sources:
           - type: git
             url: https://gitlab.freedesktop.org/libfprint/libfprint.git
-            tag: v1.94.8
+            tag: v1.94.9
             x-checker-data:
               type: git
               url: https://gitlab.freedesktop.org/libfprint/libfprint.git
               tag-pattern: ^v([\d.]+)$
 
-            commit: e57bab2f1ef3583158d2e6e2b5bb4182629ebe35
+            commit: dc8b05f0a30e93174e861977cede8427c22f8f76
 
       - name: zenity
         buildsystem: meson
