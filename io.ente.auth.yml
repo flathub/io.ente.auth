@@ -35,8 +35,8 @@ modules:
   - name: libsodium
     sources:
       - type: archive
-        url: https://github.com/jedisct1/libsodium/archive/1.0.18-RELEASE.tar.gz
-        sha256: b7292dd1da67a049c8e78415cd498ec138d194cfdb302e716b08d26b80fecc10
+        url: https://github.com/jedisct1/libsodium/archive/1.0.20-FINAL.tar.gz
+        sha256: 2988e324bef4c7833e613322fe81c3bbd1679204da7017c948039568a7a352a5
         x-checker-data:
           type: anitya
           project-id: 1728
@@ -47,8 +47,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/libfprint/fprintd.git
-        tag: v1.94.4
-        commit: a1ce7322372cb848f7cd6c3f499b757edd709dd2
+        tag: v1.94.5
+        commit: b54a007ccf58ac0ae074c7151b223f35cbd17306
         x-checker-data:
           type: git
           url: https://gitlab.freedesktop.org/libfprint/fprintd.git
@@ -86,8 +86,8 @@ modules:
         sources:
           - type: git
             url: https://gitlab.freedesktop.org/libfprint/libfprint.git
-            tag: v1.94.8
-            commit: e57bab2f1ef3583158d2e6e2b5bb4182629ebe35
+            tag: v1.94.9
+            commit: dc8b05f0a30e93174e861977cede8427c22f8f76
             x-checker-data:
               type: git
               url: https://gitlab.freedesktop.org/libfprint/libfprint.git
@@ -115,8 +115,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ente-io/ente/releases/download/auth-v4.4.12/ente-auth-v4.4.12-x86_64.deb
-        sha256: fe6406fff4b4cc19e3abd4e8768ffede60859ad6677093071acd788fda6a33c5
+        url: https://github.com/ente-io/ente/releases/download/auth-v4.4.15/ente-auth-v4.4.15-x86_64.deb
+        sha256: 89fd2f93895c233f9c270dff7eff46a7f38504eee8e7829d4d48653a72d8a2fa
         dest-filename: ente-auth.deb
         x-checker-data:
           type: json
