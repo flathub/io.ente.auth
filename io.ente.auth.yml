@@ -30,7 +30,6 @@ cleanup:
   - /include
 modules:
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
-  - shared-modules/libsoup/libsoup-2.4.json
 
   - name: libsodium
     sources:
