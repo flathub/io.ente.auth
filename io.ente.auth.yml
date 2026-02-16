@@ -25,9 +25,13 @@ rename-appdata-file: enteauth.appdata.xml
 rename-desktop-file: enteauth.desktop
 rename-icon: enteauth
 cleanup:
-  - /lib/*.la
-  - /lib/pkgconfig
+  - '*.a'
+  - '*.la'
   - /include
+  - /lib/pkgconfig
+  - /share/help
+  - /share/man
+  - /share/vala
 modules:
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
   - shared-modules/libsoup/libsoup-2.4.json
