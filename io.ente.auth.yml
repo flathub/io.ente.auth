@@ -39,8 +39,8 @@ modules:
   - name: libsodium
     sources:
       - type: archive
-        url: https://github.com/jedisct1/libsodium/archive/1.0.18-RELEASE.tar.gz
-        sha256: b7292dd1da67a049c8e78415cd498ec138d194cfdb302e716b08d26b80fecc10
+        url: https://github.com/jedisct1/libsodium/archive/1.0.20-FINAL.tar.gz
+        sha256: 2988e324bef4c7833e613322fe81c3bbd1679204da7017c948039568a7a352a5
         x-checker-data:
           type: anitya
           project-id: 1728
@@ -119,8 +119,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ente-io/ente/releases/download/auth-v4.4.12/ente-auth-v4.4.12-x86_64.deb
-        sha256: fe6406fff4b4cc19e3abd4e8768ffede60859ad6677093071acd788fda6a33c5
+        url: https://github.com/ente-io/ente/releases/download/auth-v4.4.17/ente-auth-v4.4.17-x86_64.deb
+        sha256: 4f3bcde329da4d1226dd4532a833b1989ad2cd49faad1123365d5438ed31c7ef
         dest-filename: ente-auth.deb
         x-checker-data:
           type: json
