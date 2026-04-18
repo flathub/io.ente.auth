@@ -110,7 +110,6 @@ modules:
       - ln -s /app/lib/libappindicator3.so /app/lib/libayatana-ido3-0.4.so.0
       - bsdtar --to-stdout -xf ente-auth.deb data.* | bsdtar -xf -
       - cp -a usr/share/. ${FLATPAK_DEST}/share/ && rm -rf usr/share
-      - sed -i '21d' ${FLATPAK_DEST}/share/metainfo/enteauth.appdata.xml
       - ARCH_TRIPLE=$(gcc --print-multiarch) && ln -s /usr/lib/${ARCH_TRIPLE}/libsqlite3.so.0
         ${FLATPAK_DEST}/lib/libsqlite3.so
       - ln -s ${FLATPAK_DEST}/share/enteauth/enteauth ${FLATPAK_DEST}/bin/enteauth
