@@ -90,8 +90,8 @@ modules:
         buildsystem: meson
         sources:
           - type: archive
-            url: https://download.gnome.org/sources/zenity/4.0/zenity-4.0.3.tar.xz
-            sha256: b429d97b87bd9ce7fb72ac0b78df534725d8ad39817ddca6a4ca2ee5381b08de
+            url: https://download.gnome.org/sources/zenity/4.0/zenity-4.0.5.tar.xz
+            sha256: 8a3ffe7751bed497a758229ece07be9114ad4e46a066abae4e5f31d6da4c0e9e
   - name: enteauth
     buildsystem: simple
     build-commands:
