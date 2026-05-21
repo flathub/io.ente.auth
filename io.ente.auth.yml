@@ -40,8 +40,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/libfprint/fprintd.git
-        tag: v1.94.4
-        commit: a1ce7322372cb848f7cd6c3f499b757edd709dd2
+        tag: v1.94.5
+        commit: b54a007ccf58ac0ae074c7151b223f35cbd17306
         x-checker-data:
           type: git
           url: https://gitlab.freedesktop.org/libfprint/fprintd.git
@@ -79,8 +79,8 @@ modules:
         sources:
           - type: git
             url: https://gitlab.freedesktop.org/libfprint/libfprint.git
-            tag: v1.94.8
-            commit: e57bab2f1ef3583158d2e6e2b5bb4182629ebe35
+            tag: v1.94.10
+            commit: 0c97a47d8ef405cd577b87058c1e89cae9d242e7
             x-checker-data:
               type: git
               url: https://gitlab.freedesktop.org/libfprint/libfprint.git
@@ -100,7 +100,8 @@ modules:
       - ln -s /app/lib/libappindicator3.so /app/lib/libayatana-ido3-0.4.so.0
       - bsdtar --to-stdout -xf ente-auth.deb data.* | bsdtar -xf -
       - cp -a usr/share/. ${FLATPAK_DEST}/share/ && rm -rf usr/share
-      - sed -i -E 's#(<release version="4\.4(\.[0-9]+)?" date=")[0-9]{4}-[0-9]{2}-[0-9]{2}(" */>)#\1'"$(date +%F)"'\3#' ${FLATPAK_DEST}/share/metainfo/enteauth.appdata.xml
+      - sed -i -E 's#(<release version="4\.4(\.[0-9]+)?" date=")[0-9]{4}-[0-9]{2}-[0-9]{2}("
+        */>)#\1'"$(date +%F)"'\3#' ${FLATPAK_DEST}/share/metainfo/enteauth.appdata.xml
       - ARCH_TRIPLE=$(gcc --print-multiarch) && ln -s /usr/lib/${ARCH_TRIPLE}/libsqlite3.so.0
         ${FLATPAK_DEST}/lib/libsqlite3.so
       - ln -s ${FLATPAK_DEST}/share/enteauth/enteauth ${FLATPAK_DEST}/bin/enteauth
@@ -108,8 +109,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ente-io/ente/releases/download/auth-v4.4.12/ente-auth-v4.4.12-x86_64.deb
-        sha256: fe6406fff4b4cc19e3abd4e8768ffede60859ad6677093071acd788fda6a33c5
+        url: https://github.com/ente-io/ente/releases/download/auth-v4.4.22/ente-auth-v4.4.22-x86_64.deb
+        sha256: e174ee0d31abb734ae41b129fad51588f3b13d4af5dcd1dcab64831d58231987
         dest-filename: ente-auth.deb
         x-checker-data:
           type: json
