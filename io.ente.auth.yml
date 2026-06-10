@@ -20,6 +20,8 @@ finish-args:
   - --talk-name=org.freedesktop.secrets
   # For fingerprint authentication
   - --system-talk-name=net.reactivated.Fprint
+  # Required for local auth unlock via Polkit
+  - --system-talk-name=org.freedesktop.PolicyKit1
   - --env=LD_LIBRARY_PATH=/app/lib
 rename-appdata-file: enteauth.appdata.xml
 rename-desktop-file: enteauth.desktop
